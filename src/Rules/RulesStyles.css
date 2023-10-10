@@ -1,0 +1,63 @@
+.rules-container {
+    width: 480px;
+    height: 537px;
+    border-radius: 40px;
+    border: 3px solid var(--Black, #000);
+    box-shadow: 0px 10px 0px 0px #000;
+    background: var(--White, #FFF);
+    flex-shrink: 0;
+    font-family: 'SpaceGrotesk';
+    color: black;
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.rules-title {
+font-size: 56px;
+text-align: center;
+font-feature-settings: 'clig' off, 'liga' off;
+margin-bottom: 29px;
+margin-top: 60px;
+
+}
+
+.rules-sub-heading {
+    width: 412px;
+    color: var(--Purple, #7945FF);
+    font-size: 20px;
+    font-feature-settings: 'clig' off, 'liga' off;
+    margin-bottom: 16px;
+}
+
+.rules-text {
+    width: 385px;
+    opacity: 0.6611;
+    flex-shrink: 0;
+    font-size: 16px;
+    font-weight: 500;
+    font-feature-settings: 'clig' off, 'liga' off;
+    margin-bottom: 32px;
+}
+
+.rules-text > li{
+    margin-bottom: 12px;
+}
+li::marker {
+    font-weight: 700;
+}
+
+.rules-done {
+    position: relative;
+    bottom: 2%;
+    width: 64px;
+    height: 64px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    }
+    

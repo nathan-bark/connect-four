@@ -3,18 +3,25 @@
  * @returns {JSX.Element} The main menu component.
  */
 
+import { useNavigate } from "react-router-dom";
 import logo from "../assets/images/logo.svg";
 import playerVsPlayer from '../assets/images/player-vs-player.svg'
 import "./MainMenu.css";
 
+
+
+
 const MainMenu = () => {
+  const navigate = useNavigate();
+  const ruleClick = () => navigate('/rules')
+
   return (
     <div className="main-container">
       <div className="container">
         {/* div with small logo image and two buttons to go centrally on page */}
         <img className="image" src={logo} alt="Logo" />
         <button className="button play" >PLAY VS PLAYER<img className="player-img" src={playerVsPlayer} alt=""/> </button>
-        <button className="button rules">GAME RULES</button>
+        <button className="button rules" onClick={ruleClick}>GAME RULES</button>
       </div>
     </div>
   );
