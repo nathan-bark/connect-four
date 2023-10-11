@@ -1,10 +1,11 @@
 import { useNavigate } from "react-router-dom";
+import { useCallback } from "react";
 import './RulesStyles.css'
-import rulesDone from '../assets/images/icon-check.svg'
+import rulesDone from '../../assets/images/icon-check.svg'
 
 const Rules = () => {
   const navigate = useNavigate();
-  const doneClick = () => navigate("/");
+  const doneClick = useCallback(() => navigate("/"), [navigate]);
   return (
     <div className="rules-container">
       <h1 className="rules-title">RULES</h1>
@@ -23,7 +24,7 @@ const Rules = () => {
         <li>The game ends when there is a 4-in-a-row or a stalemate.</li>
         <li>The starter of the previous game goes second on the next game.</li>
       </ol>
-      <button className="rules-done" onClick={doneClick}><img src={rulesDone} alt="" /></button>
+      <button className="rules-done" onClick={doneClick}><img src={rulesDone} alt="Done" /></button>
     </div>
   );
 };

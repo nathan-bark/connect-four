@@ -1,0 +1,10 @@
+.game-container {
+    width: 100vw;
+    height: 100vh;
+    background: var(--Purple, #7945FF);
+    display: grid;
+    grid-template-rows: 150px 650px;
+    grid-template-columns: 25% 50% 25% ;
+    justify-items: center;
+    align-items: center;
+}

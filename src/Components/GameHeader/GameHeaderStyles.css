@@ -1,0 +1,26 @@
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 632px;
+  height: 52px;
+  grid-row: 1;
+  grid-column: 2;
+}
+
+.header-container > button {
+width: 108px;
+height: 39px;
+border-radius: 20px;
+background: var(--Dark-Purple, #5C2DD5);
+flex-shrink: 0;
+color: var(--White, #FFF);
+font-family: 'SpaceGrotesk';
+font-size: 16px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+text-align: center;
+font-feature-settings: 'clig' off, 'liga' off;
+border: none;
+}
