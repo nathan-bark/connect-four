@@ -1,0 +1,20 @@
+.board-container {
+    grid-row: 2;
+    grid-column: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 632px;
+    height: 584px;
+    position: relative;
+}
+
+.black-board {
+   
+}
+
+.white-board {
+    position: absolute;
+    left: 0;
+    bottom: 8px;
+}

@@ -1,13 +1,12 @@
 import './GamePlayerStyles.css'
-
-import whiteBoardLarge from "../../assets/images/board-layer-white-large.svg";
-import blackBoardLarge from "../../assets/images/board-layer-black-large.svg";
 import GameHeader from '../GameHeader/GameHeader'
+import { GameBoard } from '../GameBoard/GameBoard';
+
 const GamePlayer = () => {
   return (
     <div className="game-container">
         <GameHeader />
-        {/* Board component */}
+        <GameBoard/>
         {/* Player scores components */}
         {/* player turn / timer compenent */}
         {/* bottom shadow/player victory component */}
