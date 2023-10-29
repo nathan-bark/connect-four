@@ -15,7 +15,7 @@
 
 .player-title {
   color: var(--Black, #000);
-  font-family: Space Grotesk;
+  font-family: 'SpaceGrotesk';
   font-size: 20px;
   font-style: normal;
   font-weight: 700;
@@ -26,7 +26,7 @@
 
 .player-score {
   color: var(--Black, #000);
-  font-family: Space Grotesk;
+  font-family: 'SpaceGrotesk';
   font-size: 56px;
   font-style: normal;
   font-weight: 700;
@@ -52,5 +52,5 @@
   width: 54px;
   height: 59px;
   position: relative;
-  bottom: 24px;
+  bottom: 20px;
 }

@@ -1,0 +1,37 @@
+.timer-container { 
+    position: relative;
+    top: 85px;
+    grid-row: 2;
+    grid-column: 2;
+    align-self: end;
+}
+
+.timer-text {
+    position: absolute;
+    bottom: 30px;
+    left: 35px;
+    text-align: center;
+    color: white;
+}
+
+.player-turn {
+    color: var(--White, #FFF);
+    font-family: 'SpaceGrotesk';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+}
+
+.time-countdown {
+    color: var(--White, #FFF);
+    font-family: 'SpaceGrotesk';
+    font-size: 56px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+}
