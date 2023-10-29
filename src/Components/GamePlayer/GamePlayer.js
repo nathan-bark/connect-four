@@ -3,6 +3,7 @@ import GameHeader from '../GameHeader/GameHeader'
 import { GameBoard } from '../GameBoard/GameBoard';
 import ScoreCard from '../ScoreCard/ScoreCard';
 import TurnTimer from '../TurnTimer/TurnTimer';
+import BottomBanner from '../BottomBanner/BottomBanner';
 
 const GamePlayer = () => {
   return (
@@ -18,7 +19,7 @@ const GamePlayer = () => {
         </div>
         
         <TurnTimer />
-        {/* bottom shadow/player victory component */}
+        <BottomBanner />
     </div>
   );
 };

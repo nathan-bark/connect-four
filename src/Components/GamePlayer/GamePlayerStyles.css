@@ -3,9 +3,11 @@
     height: 100vh;
     background: var(--Purple, #7945FF);
     display: grid;
-    grid-template-rows: 150px 650px 1fr;
+    grid-template-rows: minmax(min-content, 150px) minmax(min-content, 650px) minmax(150px, 1fr);
     grid-template-columns: minmax(min-content, 25%) minmax(min-content, 50%) minmax(min-content, 25%) ;
     justify-items: center;
     align-items: center;
     column-gap: 10px;
+    position: relative;
+    z-index: -10;
 }
