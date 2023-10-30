@@ -6,6 +6,9 @@
   height: 52px;
   grid-row: 1;
   grid-column: 2;
+  z-index: 1;
+  align-self: center;
+  justify-self: center;
 }
 
 .header-container > button {
@@ -23,4 +26,8 @@ line-height: normal;
 text-align: center;
 font-feature-settings: 'clig' off, 'liga' off;
 border: none;
+}
+
+.header-container > button:hover {
+  background-color: red;
 }
