@@ -1,0 +1,11 @@
+@import 'variables';
+
+@mixin Buttons($bgColor, $width: 335px) {
+  height: 72px;
+  width: $width;
+  background-color: $bgColor;
+  border: 3px solid $black;
+  border-radius: 20px;
+  box-shadow: 0px 10px 0px 0px $black;
+  
+}
