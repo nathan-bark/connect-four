@@ -26,6 +26,14 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+           
+
+            .vs-player-button, .game-rules-button {
+                @include FontStyle('HeadingM');
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+            }
 
             .vs-player-button {
                 @include Buttons($yellow);
