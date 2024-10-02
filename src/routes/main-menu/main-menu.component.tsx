@@ -1,5 +1,6 @@
 //Imports
 import React from "react";
+import { Link } from "react-router-dom";
 
 import "./main-menu.styles.scss";
 import logo from "../../assets/images/logo.svg";
@@ -15,7 +16,7 @@ const MainMenu = () => {
           <button className="vs-player-button">
             PLAY VS PLAYER <img src={twoPLayers} alt="2 player icon" />
           </button>
-          <button className="game-rules-button">GAME RULES</button>
+          <button className="game-rules-button"><Link to="/game-rules">GAME RULES</Link></button>
         </div>
       </div>
     </div>

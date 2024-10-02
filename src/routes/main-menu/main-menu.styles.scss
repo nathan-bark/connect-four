@@ -27,12 +27,17 @@
             align-items: center;
             justify-content: center;
            
-
+            
             .vs-player-button, .game-rules-button {
                 @include FontStyle('HeadingM');
                 display: flex;
                 align-items: center;
                 justify-content: space-around;
+                
+                a {
+                    text-decoration: none;
+                    color: $black;
+                }
             }
 
             .vs-player-button {
