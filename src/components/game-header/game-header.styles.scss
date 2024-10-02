@@ -1,0 +1,24 @@
+@import '../../sass.styles/variables';
+@import '../../sass.styles/mixins';
+
+.game-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 335px;
+    height: 40px;
+
+    button {
+        width: 108px;
+        height: 39px;
+        background-color: $dark_purple;
+        border: none;
+        border-radius: 20px;
+        color: $white;
+    }
+
+    img {
+        width: 40px;
+        height: 40px;
+    }
+}

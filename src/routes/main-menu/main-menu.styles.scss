@@ -26,6 +26,10 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            a {
+                text-decoration: none;
+                color: $black;
+            }
            
             
             .vs-player-button, .game-rules-button {
@@ -33,11 +37,8 @@
                 display: flex;
                 align-items: center;
                 justify-content: space-around;
+                cursor: pointer;
                 
-                a {
-                    text-decoration: none;
-                    color: $black;
-                }
             }
 
             .vs-player-button {

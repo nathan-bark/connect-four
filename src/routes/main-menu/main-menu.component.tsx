@@ -13,10 +13,10 @@ const MainMenu = () => {
       <div className="main-menu">
         <img className="main-menu-logo" src={logo} alt="logo" />
         <div className="main-menu-buttons">
-          <button className="vs-player-button">
+          <Link to="/player-vs-player"><button className="vs-player-button">
             PLAY VS PLAYER <img src={twoPLayers} alt="2 player icon" />
-          </button>
-          <button className="game-rules-button"><Link to="/game-rules">GAME RULES</Link></button>
+          </button></Link>
+          <Link to="/game-rules"><button className="game-rules-button">GAME RULES</button></Link>
         </div>
       </div>
     </div>
