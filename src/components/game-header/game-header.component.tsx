@@ -1,3 +1,5 @@
+/// <reference path="../../assets/images/index.d.ts" />
+
 import React from "react";
 
 import './game-header.styles.scss';

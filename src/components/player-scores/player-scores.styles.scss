@@ -1,0 +1,51 @@
+@import '../../sass.styles/variables';
+@import '../../sass.styles/mixins';
+
+.player-scores-container {
+    width: 359px;
+    height: 81px;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    right: 12px;
+   
+    .player-one-box, .player-two-box {
+        
+        width: 142px;
+        height: 81px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: $white;
+        border: 3px solid $black;
+        border-radius: 20px;
+        box-shadow: $shadow;
+
+        
+        .player-one-name, .player-two-name {
+            @include FontStyle('HeadingXS');
+        }
+    }
+
+    .player-two-box{
+        margin-left: 21px;
+    }
+
+    .player-one-image {
+        left: 0;
+    }
+
+    .player-two-image {
+        right: 0;
+    }
+
+    img {
+        position: absolute;
+        width: 51px;
+        height: 59px;
+    }
+}
+
