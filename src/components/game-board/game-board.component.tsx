@@ -19,6 +19,7 @@ const gameGrid = [
 
 const GameBoard = () => {
   let [playerOne, setPlayerOne] = useState(true);
+  let [gameWon, setGameWon] = useState(false);
 
   const winningLines = (cells: number[][]) => {
     if (cells.length === 4) {
@@ -34,6 +35,8 @@ const GameBoard = () => {
         selectorCell.style.alignItems = "center";
       });
     }
+    setGameWon(true);
+    
   };
 
   const winCheck = (row: number, col: number) => {
@@ -220,7 +223,7 @@ const GameBoard = () => {
               key={`${r}-${c}`}
               className={`selector-${r}-${c}`}
               style={{ gridColumn: c + 1, gridRow: r + 1 }}
-              onClick={addTokenOnClick(`${r}-${c}`)}
+              onClick={!gameWon ? addTokenOnClick(`${r}-${c}`): undefined}
             ></div>
           ))
         )}
