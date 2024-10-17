@@ -1,0 +1,18 @@
+@import '../../sass.styles//variables.scss';
+@import '../../sass.styles/mixins.scss';
+
+.footer-container {
+    margin-top: auto;
+    width: 375px;
+    height: 236px;
+    border-radius: 60px 60px 0 0;
+    background-color: $dark_purple;
+}
+
+.footer-player-one {
+    background-color: $yellow;
+}
+
+.footer-player-two {
+    background-color: $pink;
+}

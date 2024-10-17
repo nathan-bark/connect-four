@@ -17,7 +17,7 @@ const gameGrid = [
   [0, 0, 0, 0, 0, 0, 0],
 ];
 
-const GameBoard = () => {
+const GameBoard = ({setWinner}) => {
   let [playerOne, setPlayerOne] = useState(true);
   let [gameWon, setGameWon] = useState(false);
 
@@ -39,7 +39,7 @@ const GameBoard = () => {
     
   };
 
-  const winCheck = (row: number, col: number) => {
+  const winCheck = (row: number, col: number, setWinner: (winner: string) => void) => {
     let playerOneCounter: number = 0;
     let playerTwoCounter: number = 0;
     let winningTokens: number[][] = [];
@@ -68,9 +68,11 @@ const GameBoard = () => {
       if (playerOneCounter === 4) {
         console.log("Winner!", winningTokens);
         winningLines(winningTokens);
+        setWinner('player-one');
       } else if (playerTwoCounter === 4) {
         console.log("Winner!", winningTokens);
         winningLines(winningTokens);
+        setWinner('player-two');
       }
     }
 
@@ -98,9 +100,12 @@ const GameBoard = () => {
         playerTwoCounter = 0;
         winningTokens = [];
       }
-      if (playerOneCounter === 4 || playerTwoCounter === 4) {
-        console.log("Winner!");
+      if (playerOneCounter === 4) {
         winningLines(winningTokens);
+        setWinner('player-one');
+      } else if (playerTwoCounter === 4) {
+        winningLines(winningTokens);
+        setWinner('player-two');
       }
     }
 
@@ -130,9 +135,12 @@ const GameBoard = () => {
         playerTwoCounter = 0;
         winningTokens = [];
       }
-      if (playerOneCounter === 4 || playerTwoCounter === 4) {
-        console.log("Winner!");
+      if (playerOneCounter === 4) {
         winningLines(winningTokens);
+        setWinner('player-one');
+      } else if (playerTwoCounter === 4) {
+        winningLines(winningTokens);
+        setWinner('player-two');
       }
       rowOffset++;
       colOffset--;
@@ -164,13 +172,17 @@ const GameBoard = () => {
         playerTwoCounter = 0;
         winningTokens = [];
       }
-      if (playerOneCounter === 4 || playerTwoCounter === 4) {
-        console.log("Winner!");
+      if (playerOneCounter === 4) {
         winningLines(winningTokens);
+        setWinner('player-one');
+      } else if (playerTwoCounter === 4) {
+        winningLines(winningTokens);
+        setWinner('player-two');
       }
       rowOffset++;
       colOffset++;
     }
+    
   };
 
   const addTokenOnClick = (key) => (e) => {
@@ -193,7 +205,7 @@ const GameBoard = () => {
         tokenCell.style.backgroundRepeat = "no-repeat";
         tokenCell.style.backgroundPosition = "center";
 
-        winCheck(row, col);
+        winCheck(row, col, setWinner);
 
         break;
       }
