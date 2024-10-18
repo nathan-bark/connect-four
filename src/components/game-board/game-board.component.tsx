@@ -8,18 +8,19 @@ import topLayersmall from "../../assets/images/board-layer-white-small.svg";
 import yellowToken from "../../assets/images/counter-yellow-small.svg";
 import pinkToken from "../../assets/images/counter-red-small.svg";
 
-const gameGrid = [
-  [0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0],
-];
 
-const GameBoard = ({setWinner}) => {
+
+const GameBoard = ({
+  setWinner,
+  setPlayerOneScore,
+  setPlayerTwoScore,
+  playerOneScore,
+  playerTwoScore,
+  gameWon,
+  setGameWon,
+  gameGrid
+}) => {
   let [playerOne, setPlayerOne] = useState(true);
-  let [gameWon, setGameWon] = useState(false);
 
   const winningLines = (cells: number[][]) => {
     if (cells.length === 4) {
@@ -36,10 +37,13 @@ const GameBoard = ({setWinner}) => {
       });
     }
     setGameWon(true);
-    
   };
 
-  const winCheck = (row: number, col: number, setWinner: (winner: string) => void) => {
+  const winCheck = (
+    row: number,
+    col: number,
+    setWinner: (winner: string) => void
+  ) => {
     let playerOneCounter: number = 0;
     let playerTwoCounter: number = 0;
     let winningTokens: number[][] = [];
@@ -66,13 +70,13 @@ const GameBoard = ({setWinner}) => {
         winningTokens = [];
       }
       if (playerOneCounter === 4) {
-        console.log("Winner!", winningTokens);
         winningLines(winningTokens);
-        setWinner('player-one');
+        setWinner("player-one");
+        setPlayerOneScore(playerOneScore + 1);
       } else if (playerTwoCounter === 4) {
-        console.log("Winner!", winningTokens);
         winningLines(winningTokens);
-        setWinner('player-two');
+        setWinner("player-two");
+        setPlayerTwoScore(playerTwoScore + 1);
       }
     }
 
@@ -102,10 +106,12 @@ const GameBoard = ({setWinner}) => {
       }
       if (playerOneCounter === 4) {
         winningLines(winningTokens);
-        setWinner('player-one');
+        setWinner("player-one");
+        setPlayerOneScore(playerOneScore + 1);
       } else if (playerTwoCounter === 4) {
         winningLines(winningTokens);
-        setWinner('player-two');
+        setWinner("player-two");
+        setPlayerTwoScore(playerTwoScore + 1);
       }
     }
 
@@ -137,10 +143,12 @@ const GameBoard = ({setWinner}) => {
       }
       if (playerOneCounter === 4) {
         winningLines(winningTokens);
-        setWinner('player-one');
+        setWinner("player-one");
+        setPlayerOneScore(playerOneScore + 1);
       } else if (playerTwoCounter === 4) {
         winningLines(winningTokens);
-        setWinner('player-two');
+        setWinner("player-two");
+        setPlayerTwoScore(playerTwoScore + 1);
       }
       rowOffset++;
       colOffset--;
@@ -174,15 +182,16 @@ const GameBoard = ({setWinner}) => {
       }
       if (playerOneCounter === 4) {
         winningLines(winningTokens);
-        setWinner('player-one');
+        setWinner("player-one");
+        setPlayerOneScore(playerOneScore + 1);
       } else if (playerTwoCounter === 4) {
         winningLines(winningTokens);
-        setWinner('player-two');
+        setWinner("player-two");
+        setPlayerTwoScore(playerTwoScore + 1);
       }
       rowOffset++;
       colOffset++;
     }
-    
   };
 
   const addTokenOnClick = (key) => (e) => {
@@ -199,8 +208,8 @@ const GameBoard = ({setWinner}) => {
           `.token-${row}${col}`
         ) as HTMLDivElement;
         tokenCell.style.backgroundImage = playerOne
-          ? `url(${yellowToken})`
-          : `url(${pinkToken})`;
+          ? `url(${pinkToken})`
+          : `url(${yellowToken})`;
         tokenCell.style.backgroundSize = "100%";
         tokenCell.style.backgroundRepeat = "no-repeat";
         tokenCell.style.backgroundPosition = "center";
@@ -235,7 +244,7 @@ const GameBoard = ({setWinner}) => {
               key={`${r}-${c}`}
               className={`selector-${r}-${c}`}
               style={{ gridColumn: c + 1, gridRow: r + 1 }}
-              onClick={!gameWon ? addTokenOnClick(`${r}-${c}`): undefined}
+              onClick={!gameWon ? addTokenOnClick(`${r}-${c}`) : undefined}
             ></div>
           ))
         )}
