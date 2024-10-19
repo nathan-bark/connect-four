@@ -87,7 +87,7 @@ const PlayVsPlayer = () => {
           resetGameBoard={resetGameBoard}
         />
       ) : (
-        <PlayerTurnTimer playerOne={playerOne} />)}
+        <PlayerTurnTimer playerOne={playerOne} setPlayerOne={setPlayerOne}/>)}
 
       <Footer winner={winner} />
     </div>

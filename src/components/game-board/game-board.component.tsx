@@ -209,8 +209,6 @@ const GameBoard = ({
         gameGrid[row][col] = playerOne ? 1 : 2;
         setGameGrid(updateGameGrid(row, col));
 
-        setPlayerOne(!playerOne);
-
         const tokenCell = document.querySelector(
           `.token-${row}${col}`
         ) as HTMLDivElement;
@@ -222,6 +220,7 @@ const GameBoard = ({
         tokenCell.style.backgroundPosition = "center";
 
         winCheck(row, col, setWinner);
+        setPlayerOne(!playerOne);
 
         break;
       }
