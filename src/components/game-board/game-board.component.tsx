@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 
 import "./game-board.styles.scss";
 
@@ -12,15 +11,17 @@ import pinkToken from "../../assets/images/counter-red-small.svg";
 
 const GameBoard = ({
   setWinner,
+  playerOne,
+  setPlayerOne,
   setPlayerOneScore,
   setPlayerTwoScore,
   playerOneScore,
   playerTwoScore,
   gameWon,
   setGameWon,
-  gameGrid
+  gameGrid,
+  setGameGrid,
 }) => {
-  let [playerOne, setPlayerOne] = useState(true);
 
   const winningLines = (cells: number[][]) => {
     if (cells.length === 4) {
@@ -194,6 +195,11 @@ const GameBoard = ({
     }
   };
 
+  const updateGameGrid = (row, col) => {
+    const newGameGrid = [...gameGrid];
+    newGameGrid[row][col] = playerOne ? 1 : 2;
+    return newGameGrid;
+  }
   const addTokenOnClick = (key) => (e) => {
     let row: number = 5;
     const col: number = key.split("-")[1];
@@ -201,6 +207,7 @@ const GameBoard = ({
     while (row >= 0) {
       if (gameGrid[row][col] === 0) {
         gameGrid[row][col] = playerOne ? 1 : 2;
+        setGameGrid(updateGameGrid(row, col));
 
         setPlayerOne(!playerOne);
 

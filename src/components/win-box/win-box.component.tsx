@@ -7,8 +7,8 @@ const WinBox = ({ gameWon, winner, resetGameBoard }) => {
   return (
     <div className="win-box-container">
       <div className="win-box">
-        <p>{name}</p>
-        <p>WINS</p>
+        <p className="win-name">{name}</p>
+        <p className="win-text">WINS</p>
         <button onClick={resetGameBoard}>PLAY AGAIN</button>
       </div>
     </div>

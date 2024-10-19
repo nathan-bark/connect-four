@@ -1,0 +1,31 @@
+@import "../../sass.styles/variables.scss";
+@import "../../sass.styles/mixins.scss";
+
+.turn-timer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .turn-timer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 197px;
+    height: 150px;
+    z-index: 4;
+    position: absolute;
+    bottom: 96px;
+    box-shadow: $shadow;
+    border-radius: 0 0 20px 20px;
+  }
+
+  .player-one {
+    background-image: url("../../assets/images/turn-background-red.svg");
+  }
+
+  .player-two {
+    background-image: url("../../assets/images/turn-background-yellow.svg");
+  }
+}

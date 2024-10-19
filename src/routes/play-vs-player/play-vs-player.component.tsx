@@ -21,10 +21,11 @@ import Footer from "../../components/footer/footer.component.tsx";
 const PlayVsPlayer = () => {
   let [winner, setWinner] = useState<string>("none");
   let [gameWon, setGameWon] = useState(false);
+  let [playerOne, setPlayerOne] = useState(true);
   let [playerOneScore, setPlayerOneScore] = useState<number>(0);
   let [playerTwoScore, setPlayerTwoScore] = useState<number>(0);
 
-  const gameGrid = [
+  const originalGrid = [
     [0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0],
@@ -33,14 +34,15 @@ const PlayVsPlayer = () => {
     [0, 0, 0, 0, 0, 0, 0],
   ];
 
+  let [gameGrid, setGameGrid] = useState(originalGrid);
+
+
   const resetGameBoard = () => {
     setWinner("none");
     setGameWon(false);
 
     //reset grid
-    gameGrid.forEach((row) => {
-      row.fill(0);
-    });
+    setGameGrid(originalGrid);
 
     //remove winning circles
     const winningCircle = document.querySelectorAll(".win-circle");
@@ -74,14 +76,18 @@ const PlayVsPlayer = () => {
         gameWon={gameWon}
         setGameWon={setGameWon}
         gameGrid={gameGrid}
+        playerOne={playerOne}
+        setPlayerOne={setPlayerOne}
+        setGameGrid={setGameGrid}
       />
-      {gameWon && (
+      {gameWon ? (
         <WinBox
           gameWon={gameWon}
           winner={winner}
           resetGameBoard={resetGameBoard}
         />
-      )}
+      ) : (
+        <PlayerTurnTimer playerOne={playerOne} />)}
 
       <Footer winner={winner} />
     </div>
