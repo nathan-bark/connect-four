@@ -19,13 +19,24 @@
     bottom: 96px;
     box-shadow: $shadow;
     border-radius: 0 0 20px 20px;
+    padding-top: 23px;
   }
 
   .player-one {
     background-image: url("../../assets/images/turn-background-red.svg");
+    color: $white;
   }
 
   .player-two {
     background-image: url("../../assets/images/turn-background-yellow.svg");
+    color: $black;
+  }
+
+  .turn-text {
+    @include FontStyle("HeadingXS");
+  }
+
+  .turn-timer {
+    @include FontStyle("HeadingL");
   }
 }

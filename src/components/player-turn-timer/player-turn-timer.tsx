@@ -35,8 +35,8 @@ const PlayerTurnTimer = ({ playerOne, setPlayerOne }) => {
           playerOne ? "turn-timer player-one" : "turn-timer player-two"
         }
       >
-        <p>{playerOne ? "PLAYER 1" : "PLAYER 2"}'S TURN</p>
-        <p>{countdown}s</p>
+        <p className="turn-text">{playerOne ? "PLAYER 1" : "PLAYER 2"}'S TURN</p>
+        <p className="turn-countdown">{countdown}s</p>
       </div>
     </div>
   );

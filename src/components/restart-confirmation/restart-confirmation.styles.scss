@@ -1,0 +1,47 @@
+@import '../../sass.styles/variables';
+@import '../../sass.styles/mixins';
+
+.restart-confirmation-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $black_translucent;
+    position: absolute;
+    z-index: 5;
+
+    .restart-confirmation {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 315px;
+        height: 280px;
+        background-color: $light_purple;
+        border: 3px solid $black;
+        border-radius: 20px;
+        box-shadow: $shadow;
+        padding: 10px;
+        color: $white;
+        text-align: center;
+
+        .confirmation-text-top {
+            @include FontStyle('HeadingM');
+            margin-bottom: 30px;
+        }
+
+        .cancel-button, .confirm-button {
+         @include FontStyle('HeadingM');
+         margin-bottom: 15px;
+        }
+
+        .cancel-button {
+            @include Buttons($white, 295px);
+        }
+
+        .confirm-button {
+            @include Buttons($pink, 295px);
+        }
+    }
+}

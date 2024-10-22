@@ -9,6 +9,7 @@ import GameBoard from "../../components/game-board/game-board.component.tsx";
 import PlayerTurnTimer from "../../components/player-turn-timer/player-turn-timer.tsx";
 import WinBox from "../../components/win-box/win-box.component.tsx";
 import Footer from "../../components/footer/footer.component.tsx";
+import RestartConfirmation from "../../components/restart-confirmation/restart-confirmation.component.tsx";
 
 // Header:  pause menu overlay including restart button -  Restart Button and logo
 // Player scores: Scores for each player with appropriate face image for p1 and p2
@@ -35,6 +36,7 @@ const PlayVsPlayer = () => {
   ];
 
   let [gameGrid, setGameGrid] = useState(originalGrid);
+  let [showResetConfirmation, setShowResetConfirmation] = useState(false);
 
 
   const resetGameBoard = () => {
@@ -60,9 +62,19 @@ const PlayVsPlayer = () => {
     }
   };
 
+  const resetGame = () => {
+    resetGameBoard();
+    setPlayerOne(!playerOne);
+    setPlayerOne(true);
+    setPlayerOneScore(0);
+    setPlayerTwoScore(0);
+  }
+
   return (
     <div className="play-vs-player-container">
-      <GameHeader />
+      <GameHeader
+        setShowResetConfirmation={setShowResetConfirmation}
+      />
       <PlayerScores
         playerOneScore={playerOneScore}
         playerTwoScore={playerTwoScore}
@@ -90,6 +102,8 @@ const PlayVsPlayer = () => {
         <PlayerTurnTimer playerOne={playerOne} setPlayerOne={setPlayerOne}/>)}
 
       <Footer winner={winner} />
+
+      {showResetConfirmation && <RestartConfirmation resetGame={resetGame} setShowResetConfirmation={setShowResetConfirmation}/>}
     </div>
   );
 };

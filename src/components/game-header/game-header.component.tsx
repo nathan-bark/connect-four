@@ -6,12 +6,12 @@ import './game-header.styles.scss';
 
 import logo from '../../assets/images/logo.svg'
 
-const GameHeader = () => {
+const GameHeader = ({ setShowResetConfirmation, }) => {
     return (
         <div className="game-header">
             <button className="menu-button">MENU</button>
             <img src={logo} alt="logo" />
-            <button className="restart-button">RESTART</button>
+            <button className="restart-button" onClick={() => setShowResetConfirmation(true)}>RESTART</button>
         </div>
     )
 }
