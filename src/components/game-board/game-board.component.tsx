@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect } from "react";
 
 import "./game-board.styles.scss";
 
@@ -11,6 +12,7 @@ import pinkToken from "../../assets/images/counter-red-small.svg";
 
 const GameBoard = ({
   setWinner,
+  winner,
   playerOne,
   setPlayerOne,
   setPlayerOneScore,
@@ -40,6 +42,21 @@ const GameBoard = ({
     setGameWon(true);
   };
 
+  const tieCheck = () => {
+    let tie: boolean = true;
+    for (let row of gameGrid) {
+      if (row.includes(0)) {
+        tie = false;
+        break;
+      }
+    }
+    if (tie) {
+      setWinner("tie");
+      setGameWon(true);
+    }
+  };
+
+  
   const winCheck = (
     row: number,
     col: number,
@@ -48,6 +65,8 @@ const GameBoard = ({
     let playerOneCounter: number = 0;
     let playerTwoCounter: number = 0;
     let winningTokens: number[][] = [];
+
+    
 
     //check row for four consecutive 1's or 2's
     for (let i = 0; i < 7; i++) {
@@ -193,6 +212,8 @@ const GameBoard = ({
       rowOffset++;
       colOffset++;
     }
+
+    tieCheck();
   };
 
   const updateGameGrid = (row, col) => {

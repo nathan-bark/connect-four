@@ -8,6 +8,7 @@ import PlayerScores from "../../components/player-scores/player-scores.component
 import GameBoard from "../../components/game-board/game-board.component.tsx";
 import PlayerTurnTimer from "../../components/player-turn-timer/player-turn-timer.tsx";
 import WinBox from "../../components/win-box/win-box.component.tsx";
+import TieBox from "../../components/tie-box/tie-box.component.tsx";
 import Footer from "../../components/footer/footer.component.tsx";
 import RestartConfirmation from "../../components/restart-confirmation/restart-confirmation.component.tsx";
 import InGameMenu from "../../components/in-game-menu/in-game-menu.component.tsx";
@@ -22,7 +23,7 @@ import QuitGameConfirmation from "../../components/quit-game-confirmation/quit-g
 //swithc to next player after 15 seconds or disc is played
 
 const PlayVsPlayer = () => {
-  let [winner, setWinner] = useState<string>("none");
+  let [winner, setWinner] = useState<string>("");
   let [gameWon, setGameWon] = useState<boolean>(false);
   let [playerOne, setPlayerOne] = useState<boolean>(true);
   let [playerOneScore, setPlayerOneScore] = useState<number>(0);
@@ -47,7 +48,7 @@ const PlayVsPlayer = () => {
   const [countdown, setCountdown] = useState<number>(15);
 
   const resetGameBoard = () => {
-    setWinner("none");
+    setWinner("");
     setGameWon(false);
 
     //reset grid
@@ -90,6 +91,7 @@ const PlayVsPlayer = () => {
       />
       <GameBoard
         setWinner={setWinner}
+        winner={winner}
         playerOneScore={playerOneScore}
         playerTwoScore={playerTwoScore}
         setPlayerOneScore={setPlayerOneScore}
@@ -101,12 +103,18 @@ const PlayVsPlayer = () => {
         setPlayerOne={setPlayerOne}
         setGameGrid={setGameGrid}
       />
+
       {gameWon ? (
-        <WinBox
-          gameWon={gameWon}
-          winner={winner}
-          resetGameBoard={resetGameBoard}
-        />
+        winner === "tie" ? (
+          (console.log("rendering tie box"),
+          (<TieBox resetGameBoard={resetGameBoard} />))
+        ) : (
+          <WinBox
+            gameWon={gameWon}
+            winner={winner}
+            resetGameBoard={resetGameBoard}
+          />
+        )
       ) : (
         <PlayerTurnTimer
           playerOne={playerOne}

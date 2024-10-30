@@ -1,0 +1,39 @@
+@import '../../sass.styles/variables';
+@import '../../sass.styles/mixins';
+
+.tie-box-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .tie-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 285px;
+        height: 160px;
+        position: absolute;
+        bottom: 86px;
+        z-index: 4;
+        background-color: $white;
+        border: $box-border;
+        border-radius: 20px;
+        box-shadow: $shadow;
+
+        p {
+            @include FontStyle('HeadingL');
+        }
+
+        button {
+            @include FontStyle('HeadingXS');
+            border: none;
+            border-radius: 20px;
+            width: 130px;
+            height: 39px;
+            background-color: $dark_purple;
+            color: $white;
+        }
+    }
+}
