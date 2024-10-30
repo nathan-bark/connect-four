@@ -42,13 +42,13 @@
             }
 
             .vs-player-button {
-                @include Buttons($yellow);
+                @include Buttons($yellow, 'mobile');
                 margin-bottom: 30px;
                 
             }
 
             .game-rules-button {
-                @include Buttons($white);
+                @include Buttons($white, 'mobile');
             }
 
         }

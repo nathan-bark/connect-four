@@ -37,11 +37,12 @@
         }
 
         .cancel-button {
-            @include Buttons($white, 295px);
+            @include Buttons($white, 'mobile');
         }
 
         .confirm-button {
-            @include Buttons($pink, 295px);
+            @include Buttons($pink, 'mobile');
+            color: $white;
         }
     }
 }

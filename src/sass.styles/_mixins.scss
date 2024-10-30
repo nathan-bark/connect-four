@@ -5,9 +5,15 @@
   src: url('../assets/fonts/SpaceGrotesk-VariableFont_wght.ttf') format('truetype');
 }
 
-@mixin Buttons($bgColor, $width: 335px) {
+@mixin Buttons($bgColor, $width: 'mobile') {
   height: 72px;
-  width: $width;
+  @if $width == 'mobile' {
+    width: 295px;
+  } @else if $width == 'tablet' {
+    width: 400px;
+  } @else if $width == 'desktop' {
+    width: 480px;
+  }
   background-color: $bgColor;
   border: 3px solid $black;
   border-radius: 20px;

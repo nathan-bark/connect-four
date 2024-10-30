@@ -1,0 +1,44 @@
+@import '../../sass.styles/variables';
+@import '../../sass.styles/mixins';
+
+.quit-game-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $black_translucent;
+    position: absolute;
+    z-index: 5;
+
+    .quit-game-confirmation {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 89.33%;
+        height: 40%;
+        color: $white;
+        background-color: $light_purple;
+        border: $box-border;
+        border-radius: 40px;
+        box-shadow: $shadow;
+
+        p {
+            @include FontStyle('HeadingL');
+        }
+
+        button {
+            @include Buttons($white, 'mobile');
+            @include FontStyle('HeadingM');
+        }
+
+        a {
+            width: 89.7%;
+            button {
+                @include Buttons($pink, 'mobile');
+                color: $white;
+            }
+        }
+    }
+}
