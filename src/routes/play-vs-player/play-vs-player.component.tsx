@@ -60,6 +60,12 @@ const PlayVsPlayer = () => {
       circle.remove();
     });
 
+    //remove animation
+    const tokenCells = document.querySelectorAll(".token-grid > div");
+    tokenCells.forEach((tokenCell) => {
+      tokenCell.classList.remove("animate");
+    });
+
     //remove tokens
     const tokenList = document.querySelector(".token-grid");
     const tokenListChildren = tokenList?.children;
@@ -106,8 +112,7 @@ const PlayVsPlayer = () => {
 
       {gameWon ? (
         winner === "tie" ? (
-          (console.log("rendering tie box"),
-          (<TieBox resetGameBoard={resetGameBoard} />))
+          <TieBox resetGameBoard={resetGameBoard} />
         ) : (
           <WinBox
             gameWon={gameWon}

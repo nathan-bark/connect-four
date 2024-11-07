@@ -25,6 +25,12 @@
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(6, 1fr);
+  position: relative;
+  overflow: hidden;
+
+  .animate {
+    animation: drop-token 0.5s ease-in;
+  }
 }
 
 .top-layer {
@@ -45,4 +51,16 @@
     border-radius: 50%;
     border: 5px solid $white;
    }
+}
+
+
+@keyframes drop-token {
+  0% {
+    transform: translateY(-285px);
+    top: -285px;
+  }
+
+  100% {
+    top: auto;
+  }
 }

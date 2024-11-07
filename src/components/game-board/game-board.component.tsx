@@ -1,5 +1,4 @@
 import React from "react";
-import { useEffect } from "react";
 
 import "./game-board.styles.scss";
 
@@ -7,8 +6,6 @@ import bottomLayerSmall from "../../assets/images/board-layer-black-small.svg";
 import topLayersmall from "../../assets/images/board-layer-white-small.svg";
 import yellowToken from "../../assets/images/counter-yellow-small.svg";
 import pinkToken from "../../assets/images/counter-red-small.svg";
-
-
 
 const GameBoard = ({
   setWinner,
@@ -24,7 +21,6 @@ const GameBoard = ({
   gameGrid,
   setGameGrid,
 }) => {
-
   const winningLines = (cells: number[][]) => {
     if (cells.length === 4) {
       cells.forEach((token: number[]) => {
@@ -56,7 +52,6 @@ const GameBoard = ({
     }
   };
 
-  
   const winCheck = (
     row: number,
     col: number,
@@ -65,8 +60,6 @@ const GameBoard = ({
     let playerOneCounter: number = 0;
     let playerTwoCounter: number = 0;
     let winningTokens: number[][] = [];
-
-    
 
     //check row for four consecutive 1's or 2's
     for (let i = 0; i < 7; i++) {
@@ -220,7 +213,7 @@ const GameBoard = ({
     const newGameGrid = [...gameGrid];
     newGameGrid[row][col] = playerOne ? 1 : 2;
     return newGameGrid;
-  }
+  };
   const addTokenOnClick = (key) => (e) => {
     let row: number = 5;
     const col: number = key.split("-")[1];
@@ -239,10 +232,14 @@ const GameBoard = ({
         tokenCell.style.backgroundSize = "100%";
         tokenCell.style.backgroundRepeat = "no-repeat";
         tokenCell.style.backgroundPosition = "center";
+        tokenCell.classList.add("animate");
 
-        winCheck(row, col, setWinner);
+        let currentRow = row;
+        setTimeout(() => {
+          winCheck(currentRow, col, setWinner);
+        }, 500);
+
         setPlayerOne(!playerOne);
-
         break;
       }
       row--;
