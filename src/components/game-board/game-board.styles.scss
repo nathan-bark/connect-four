@@ -1,58 +1,58 @@
-@import '../../sass.styles/variables.scss';
+@import "../../sass.styles/variables.scss";
 .board-container {
   margin-top: 50px;
   width: 335px;
   position: relative;
-}
 
-.bottom-layer,
-.token-grid,
-.top-layer,
-.selector-grid {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
+  .bottom-layer,
+  .token-grid,
+  .top-layer,
+  .selector-grid {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 335px;
+  }
 
-.bottom-layer {
-  z-index: 1;
-}
+  .bottom-layer {
+    z-index: 1;
+    box-shadow: $shadow;
+    border-radius: 40px;
+    
+  }
 
-.token-grid {
-  z-index: 2;
-  width: 335px;
-  height: 285px;
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: repeat(6, 1fr);
-  position: relative;
-  overflow: hidden;
+  .token-grid {
+    z-index: 2;
+    height: 285px;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    position: relative;
+    overflow: hidden;
 
-  .animate {
-    animation: drop-token 0.5s ease-in;
+    .animate {
+      animation: drop-token 0.5s ease-in;
+    }
+  }
+  .top-layer {
+    z-index: 3;
+  }
+
+  .selector-grid {
+    z-index: 4;
+    height: 285px;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+
+    .win-circle {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 5px solid $white;
+    }
   }
 }
-
-.top-layer {
-  z-index: 3;
-}
-
-.selector-grid {
-  z-index: 4;
-  width: 335px;
-  height: 285px;
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: repeat(6, 1fr);
-
-   .win-circle {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border: 5px solid $white;
-   }
-}
-
 
 @keyframes drop-token {
   0% {
@@ -62,5 +62,22 @@
 
   100% {
     top: auto;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .board-container {
+    width: 632px;
+    height: 584px;
+
+    .bottom-layer, .top-layer {
+      width: 632px;
+      height: 584px;
+    }
+
+    .token-grid, .selector-grid {
+      width: 632px;
+      height: 554px;
+    }
   }
 }

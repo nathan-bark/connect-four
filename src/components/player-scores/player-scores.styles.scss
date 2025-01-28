@@ -35,17 +35,34 @@
     }
 
     .player-one-image {
-        left: 0;
+        left: 8px;
     }
 
     .player-two-image {
-        right: 0;
+        right:8px;
     }
 
     img {
         position: absolute;
         width: 51px;
         height: 59px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .player-scores-container {
+        width: 633px;
+        height: 100px;
+        right: 0px;
+
+        .player-one-box, .player-two-box {
+            width: 272px;
+            height: 100px;
+        }
+
+        .player-two-box{
+            margin-left: 41px;
+        }
     }
 }
 

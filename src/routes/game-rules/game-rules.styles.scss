@@ -1,16 +1,15 @@
-@import '../../sass.styles/variables';
-@import '../../sass.styles/mixins';
+@import "../../sass.styles/variables";
+@import "../../sass.styles/mixins";
 
 .game-rules-container {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: $light_purple;
-}
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $light_purple;
 
-.game-rules {
+  .game-rules {
     width: 335px;
     height: 586px;
     display: flex;
@@ -22,34 +21,35 @@
     border-radius: 40px;
     box-shadow: $shadow;
     padding: 27px 20px;
-    @include FontStyle('paragraph');
+    @include FontStyle("paragraph");
 
     .game-rules-title {
-        @include FontStyle('HeadingL');
-        margin-bottom: 29px;
+      @include FontStyle("HeadingL");
+      margin-bottom: 29px;
     }
 
     .game-rules-subtitle {
-        @include FontStyle('HeadingS');
-        align-self: flex-start;
-        color: $light_purple;
-        margin-bottom: 16px;
+      @include FontStyle("HeadingS");
+      align-self: flex-start;
+      color: $light_purple;
+      margin-bottom: 16px;
     }
 
     p {
-        margin-bottom: 33px;
+      @include FontStyle("paragraph");
+      margin-bottom: 33px;
     }
 
     .instructions-container {
-        width: 295px;
-        height: 240px;
+      width: 295px;
+      height: 240px;
     }
 
     .instructions {
       counter-reset: list;
       list-style: none;
-      @include FontStyle('paragraph');
-      
+      @include FontStyle("paragraph");
+
       li {
         counter-increment: list;
         position: relative;
@@ -60,17 +60,35 @@
           margin-right: 5px;
           position: absolute;
           left: 0;
-          @include FontStyle('HeadingXS');
+          @include FontStyle("HeadingXS");
         }
       }
     }
 
-      .check-button {
-        width: 64px;
-        height: 64px;
-        position: relative;
-        top: 20px;
-      }
+    .check-button {
+      width: 64px;
+      height: 64px;
+      position: relative;
+      top: 20px;
+    }
+  }
 }
 
+@media only screen and (min-width: 768px) {
+  .game-rules-container{
+    .game-rules{
+      width: 480px;
+      height: 537px;
+      padding: 27px 30px;
 
+      .instructions-container{
+        width: 412px;
+        height: 219px;
+      }
+
+      .check-button{
+        top: 22px;
+      }
+    }
+  }
+}

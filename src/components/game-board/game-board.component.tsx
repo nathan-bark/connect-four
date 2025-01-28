@@ -3,9 +3,13 @@ import React from "react";
 import "./game-board.styles.scss";
 
 import bottomLayerSmall from "../../assets/images/board-layer-black-small.svg";
+import bottomLayerLarge from "../../assets/images/board-layer-black-large.svg";
 import topLayersmall from "../../assets/images/board-layer-white-small.svg";
-import yellowToken from "../../assets/images/counter-yellow-small.svg";
-import pinkToken from "../../assets/images/counter-red-small.svg";
+import topLayerLarge from "../../assets/images/board-layer-white-large.svg";
+import yellowTokenSmall from "../../assets/images/counter-yellow-small.svg";
+import yellowTokenLarge from "../../assets/images/counter-yellow-large.svg";
+import pinkTokenSmall from "../../assets/images/counter-red-small.svg";
+import pinkTokenLarge from "../../assets/images/counter-red-large.svg";
 
 const GameBoard = ({
   setWinner,
@@ -217,6 +221,8 @@ const GameBoard = ({
   const addTokenOnClick = (key) => (e) => {
     let row: number = 5;
     const col: number = key.split("-")[1];
+    const yellowToken = window.innerWidth >= 768 ? yellowTokenLarge : yellowTokenSmall;
+    const pinkToken = window.innerWidth >= 768 ? pinkTokenLarge : pinkTokenSmall;
 
     while (row >= 0) {
       if (gameGrid[row][col] === 0) {
@@ -248,7 +254,12 @@ const GameBoard = ({
 
   return (
     <div className="board-container">
-      <img className="bottom-layer" src={bottomLayerSmall} alt="bottom layer" />
+      <img
+        className="bottom-layer"
+        src={bottomLayerSmall}
+        srcSet={`${bottomLayerSmall} 767w, ${bottomLayerLarge} 768w`}
+        alt="bottom layer"
+      />
       <div className="token-grid">
         {Array.from({ length: 6 }, (_, r) =>
           Array.from({ length: 7 }, (_, c) => (
@@ -260,7 +271,12 @@ const GameBoard = ({
           ))
         )}
       </div>
-      <img className="top-layer" src={topLayersmall} alt="top layer" />
+      <img
+        className="top-layer"
+        src={topLayersmall}
+        srcSet={`${topLayersmall} 767w, ${topLayerLarge} 768w`}
+        alt="top layer"
+      />
       <div className="selector-grid">
         {Array.from({ length: 6 }, (_, r) =>
           Array.from({ length: 7 }, (_, c) => (

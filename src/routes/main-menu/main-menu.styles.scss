@@ -5,6 +5,11 @@
     background-color: $dark_purple;
     height: 100vh;
 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
     .main-menu {
         background-color: $light_purple;
         height: 100vh;
@@ -54,3 +59,27 @@
         }
     }
 }
+
+@media only screen and (min-width: 600px) {
+    .main-menu-container {
+        .main-menu {
+            width: 480px;
+            height: 435px;
+            border-radius: 40px;
+            border: $box-border;
+            box-shadow: $shadow;
+
+            .main-menu-buttons{
+
+                .vs-player-button {
+                    @include Buttons($yellow, 'tablet');
+                }
+                .game-rules-button {
+                    @include Buttons($white, 'tablet');
+                }
+            }
+             
+        }
+    }
+    }
+  
